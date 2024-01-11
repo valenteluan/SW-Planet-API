@@ -1,5 +1,6 @@
 package com.example.swplanetapi.domain;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,6 +20,10 @@ public class PlanetService {
 
     public Optional<Planet> get(Long id) {
         return planetRepository.findById(id);
+    }
+
+    public Optional<Planet> getByName(String name) {
+        return planetRepository.findByName(name);
     }
 
 }
