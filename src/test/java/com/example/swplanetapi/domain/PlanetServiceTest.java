@@ -6,8 +6,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static com.example.swplanetapi.common.PlanetConstans.PLANET;
+import java.util.Optional;
+
 import static com.example.swplanetapi.common.PlanetConstans.INVALID_PLANET;
+import static com.example.swplanetapi.common.PlanetConstans.PLANET;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.when;
@@ -34,6 +36,19 @@ class PlanetServiceTest {
         assertThatThrownBy(() -> planetService.create(INVALID_PLANET)).isInstanceOf(RuntimeException.class);
     }
 
-    
+    @Test
+    public void getPlanet_ByExistingId_ReturnsPlanet() {
+        when(planetRepository.findById(1L)).thenReturn(Optional.of(PLANET));
+        Optional<Planet> sut = planetService.get(1L);
+        assertThat(sut).isNotEmpty();
+        assertThat(sut.get()).isEqualTo(PLANET);
+    }
+
+    @Test
+    public void getPlanet_ByUnexistingId_ReturnsEmpty() {
+        when(planetRepository.findById(1l)).thenReturn(Optional.empty());
+        Optional<Planet> sut = planetService.get(1L);
+        assertThat(sut).isEmpty();
+    }
 
 }
