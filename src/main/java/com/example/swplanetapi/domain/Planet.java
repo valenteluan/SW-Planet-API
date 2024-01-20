@@ -81,4 +81,9 @@ public class Planet {
     public boolean equals(Object obj) {
         return EqualsBuilder.reflectionEquals(obj, this);
     }
+
+    @Override
+    public String toString() {
+        return "Planet [climate=" + climate + ", id=" + id + ", name=" + name + ", terrain=" + terrain + "]";
+    }
 }

@@ -12,8 +12,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static com.example.swplanetapi.common.PlanetConstans.INVALID_PLANET;
-import static com.example.swplanetapi.common.PlanetConstans.PLANET;
+import static com.example.swplanetapi.common.PlanetConstants.INVALID_PLANET;
+import static com.example.swplanetapi.common.PlanetConstants.PLANET;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;

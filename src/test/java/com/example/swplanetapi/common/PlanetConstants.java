@@ -5,7 +5,7 @@ import com.example.swplanetapi.domain.Planet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlanetConstans {
+public class PlanetConstants {
 
     public static final Planet PLANET = new Planet("Marte", "Neve", "Montanhoso");
     public static final Planet INVALID_PLANET = new Planet("", "", "");
